@@ -9,7 +9,7 @@ public abstract class Veiculo{
   //Metodos
   public  Veiculo();
   public abstract void mover();
-  public String toString();
+  public abstract String toString();
   public abstract void desenhar();
   public void calibrarPneu(int n);
 
