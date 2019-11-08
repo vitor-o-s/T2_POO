@@ -10,7 +10,9 @@ public class Bicicleta extends Veiculo{
   public String toString(){
     return 'Eu sou uma Bicicleta';
   }
-  public void calibrarPneu(int n);
+  public void calibrarPneu(int n){
+    //Implementar
+  }
 
   public void desenhar(){
     String[] bike = {"   __o\n"," _`\\<,_\n","(*)/ (*)\n\n"};
