@@ -6,12 +6,13 @@ public class Bicicleta extends Veiculo{
   private Roda[] rodas;
   private int quantidadeRodas;
 
-  //Metodos
+  //Metodos Herdados de Veiculos
   public String toString(){
     return 'Eu sou uma Bicicleta';
   }
+
   public void calibrarPneu(int n){
-    //Implementar
+    
   }
 
   public void desenhar(){
