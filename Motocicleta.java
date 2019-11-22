@@ -13,11 +13,14 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
 
   //Métodos Herdados de Veiculo
   public void desenhar(){
-    String[] moto = {"   ,_oo\n", ".-/c-//::          Motocicleta\n","(_)'==(_)\n\n"};
+    String[] moto = {"   ,_oo\n",".-/c-//::          Motocicleta\n","(_)'==(_)\n\n"};
     System.out.print(moto[0]);
     System.out.print(moto[1]);
     System.out.print(moto[2]);
   }
+
+  //A cada iteração vai andar mais do que deveria
+  //Propagação de erro corrigir
 
   public void mover(){
     String giroMoto = "      ";
