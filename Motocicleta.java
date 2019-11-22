@@ -1,27 +1,21 @@
 public class Motocicleta extends Veiculo_Motorizado implements IPVA{
 
   //Atributos
-  private int id;
-  private int distanciaPercorrida;
-  private Roda[] rodas;
-  private int quantidadeRodas;
-  private float combustivel
+  //private int id;
+  //private int distanciaPercorrida;
+  //private Roda[] rodas;
+  private final int QTDRODAS = 2;
+  //private float combustivel
 
   //Método construtor
-  public Motocicleta(){
-    distanciaPercorrida = 0;
-    quantidadeRodas = 2;
-    rodas = new Roda[quantidadeRodas];
-    for(int i = 0; i < quantidadeRodas; i++){
-      rodas[i].Roda();
-    }
-
+  public Motocicleta(int ID, int dist){
+    super(ID, dist, QTDRODAS);
   }
 
 
   //Métodos Herdados de Veiculo
   public void desenhar(){
-    String [] moto = {"   ,_oo\n", ".-/c-//::\n","(_)'==(_)\n\n"};
+    String[] moto = {"   ,_oo\n", ".-/c-//::\n","(_)'==(_)\n\n"};
     System.out.print(moto[0]);
     System.out.print(moto[1]);
     System.out.print(moto[2]);
@@ -45,11 +39,6 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   public String toString(){
     return 'Eu sou uma Motocicleta';
   }
-
-  public void calibrarPneu(int n){
-    rodas[n].setCalibragem();
-  }
-
 
   //Métodos Herdados de Veículo Motorizado
   public void abastecer(){

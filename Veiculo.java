@@ -1,16 +1,27 @@
 public abstract class Veiculo{
 
   //Atributos
-  private int id;
+  private final int ID;
   private int distanciaPercorrida;
   private Roda[] rodas;
   private int quantidadeRodas;
 
   //Metodos
-  public  Veiculo();
+  public  Veiculo(int ID, int distancia, int qtdrodas){
+    this.ID = ID;
+    this.distanciaPercorrida = distancia;
+    this.quantidadeRodas = qtdrodas;
+    this.rodas = new Roda[quantidadeRodas];
+  }
+
   public abstract void mover();
-  public abstract String toString();
   public abstract void desenhar();
-  public void calibrarPneu(int n);
+  public abstract String toString();
+
+  public void calibrarPneu(Roda rodas[], int quantidadeRodas){
+    for(int i = 0; i < quantidadeRodas; i++){
+      rodas[i] = new Roda();
+    }
+  }
 
 }

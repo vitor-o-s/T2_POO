@@ -10,19 +10,23 @@ public  class Roda{
     Random x = new Random();
     int i =  x.nextInt(100);
     if(i % 2 == 0) {
-      calibragempneu = true;
+      this.calibragempneu = true;
     }
     else{
-      calibragempneu = false;
+      this.calibragempneu = false;
     }
   }
 
-  public void setCalibragem(){
-    calibragempneu = true;
+  public void setCalibragemT(){
+    this.calibragempneu = true;
+  }
+
+  public void setCalibragemF(){
+    this.calibragempneu = false;
   }
 
   public boolean getCalibragem(){
-     return calibragempneu;
+     return this.calibragempneu;
   }
 
 }
