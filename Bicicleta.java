@@ -1,18 +1,23 @@
 public class Bicicleta extends Veiculo{
 
+  //Atributos
+  //private final int QTDRODAS = 2;
+  private String[] bike;
+  private String[] giroBike;
+  private int dist_perc;
 
-  private int id;
-  private int distanciaPercorrida;
-  private Roda[] rodas;
-  private int quantidadeRodas;
+  //Métodos
+  public Bicicleta(int ID, int distancia){
+    super(ID, distancia, 2);
+  }
 
   //Metodos Herdados de Veiculos
   public String toString(){
-    return 'Eu sou uma Bicicleta';
+    return "Eu sou uma Bicicleta";
   }
 
   public void calibrarPneu(int n){
-    
+
   }
 
   public void desenhar(){
@@ -24,16 +29,15 @@ public class Bicicleta extends Veiculo{
 
   public void mover(){
     String giroBike = "    ";
-    for (int i = 0; i < distanciaPercorrida ; i++)
+    dist_perc = getDistancia();
+    for (int i = 0; i < dist_perc ; i++)
           giroBike = "    " + giroBike;
-    for(i=0;i<bike.length;i++)
+    for(int i = 0; i<bike.length; i++)
     	bike[i] = giroBike + bike[i];
     System.out.print(bike[0]);
     System.out.print(bike[1]);
     System.out.print(bike[2]);
-    //Como o giro bike é de 2 espaços ja formatado contaremos quantas
-    //vezes  a bike andou
-    distanciaPercorrida = distanciaPercorrida + 1;
+    setDistancia();
 
   }
 

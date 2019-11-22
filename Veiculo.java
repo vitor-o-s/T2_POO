@@ -4,7 +4,7 @@ public abstract class Veiculo{
   private final int ID;
   private int distanciaPercorrida;
   private Roda[] rodas;
-  private int quantidadeRodas;
+  private final int quantidadeRodas;
 
   //Metodos
   public  Veiculo(int ID, int distancia, int qtdrodas){
@@ -22,6 +22,13 @@ public abstract class Veiculo{
     for(int i = 0; i < quantidadeRodas; i++){
       rodas[i] = new Roda();
     }
+  }
+
+  public int getDistancia(){
+    return distanciaPercorrida;
+  }
+  public void setDistancia(){
+    distanciaPercorrida = distanciaPercorrida + 1;
   }
 
 }
