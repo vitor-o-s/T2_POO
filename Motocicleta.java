@@ -1,14 +1,23 @@
+import java.util.Random;
+
 public class Motocicleta extends Veiculo_Motorizado implements IPVA{
 
   //Atributos
-  private String[] giroMoto;
   private String[] moto = {"   ,_oo\n",".-/c-//::          Motocicleta\n","(_)'==(_)\n\n"};
+  private boolean IPVA;
 
   //Método construtor
   public Motocicleta(int ID, int dist){
     super(ID, dist, 2);
+    Random x = new Random();
+    int i =  x.nextInt(100);
+    if(i % 2 == 0) {
+      this.IPVA = true;
+    }
+    else{
+      this.IPVA = false;
+    }
   }
-
 
   //Métodos Herdados de Veiculo
   public void desenhar(){
@@ -54,5 +63,8 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
     return (cte_Motocicleta * valor_Base);
   }
 
+  public boolean getIPVA(){
+    return IPVA;
+  }
 
 }

@@ -3,8 +3,7 @@ public class Bicicleta extends Veiculo{
   //Atributos
   //private final int QTDRODAS = 2;
   private String[] bike = {"   __o\n"," _`\\<,_       Bike\n","(*)/ (*)\n\n"};
-  private String[] giroBike;
-  private int dist_perc;
+
 
   //Métodos
   public Bicicleta(int ID, int distancia){
@@ -13,7 +12,7 @@ public class Bicicleta extends Veiculo{
 
   //Metodos Herdados de Veiculos
   public String toString(){
-    return "Eu sou uma Bicicleta";
+    return "Eu sou uma Bicicleta e andei"+getDistancia();
   }
 
   public void calibrarPneu(int n){
@@ -29,9 +28,7 @@ public class Bicicleta extends Veiculo{
 
   public void mover(){
     String giroBike = "    ";
-    //dist_perc = getDistancia();
-    //for (int i = 0; i < dist_perc ; i++)
-    //      giroBike = "    " + giroBike;
+
     for(int i = 0; i<bike.length; i++)
     	bike[i] = giroBike + bike[i];
     System.out.print(bike[0]);

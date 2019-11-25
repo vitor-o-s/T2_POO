@@ -15,8 +15,7 @@ public abstract class Veiculo_Motorizado extends Veiculo{
   public void abastecer(float qtd){
     this.combustivel =  this.combustivel + qtd;
   }
-  public abstract String toString();
-
+  
   public float getCarro(){
     return gastoCarro;
   }
@@ -34,6 +33,10 @@ public abstract class Veiculo_Motorizado extends Veiculo{
   }
   public float getcombustivel(){
     return combustivel;
+  }
+
+  public String toString(){
+    return "Sou um veiculo motorizado com "+getcombustivel()+"litros";
   }
 
 }

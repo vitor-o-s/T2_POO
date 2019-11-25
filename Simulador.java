@@ -4,8 +4,11 @@ public class Simulador{
 
        Motocicleta moto = new Motocicleta(1,0);
        Bicicleta bike = new Bicicleta(2,0);
+       Ferrari F1 = new Ferrari(3,0);
+       F1.desenhar();
        moto.desenhar();
        bike.desenhar();
+       F1.mover();
        moto.mover();
        bike.mover();
        moto.mover();
@@ -22,6 +25,7 @@ public class Simulador{
        }
        bike.desenhar();
        moto.desenhar();
+       F1.desenhar();
   }
 
 
