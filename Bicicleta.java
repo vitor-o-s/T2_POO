@@ -2,7 +2,7 @@ public class Bicicleta extends Veiculo{
 
   //Atributos
   //private final int QTDRODAS = 2;
-  private String[] bike;
+  private String[] bike = {"   __o\n"," _`\\<,_       Bike\n","(*)/ (*)\n\n"};
   private String[] giroBike;
   private int dist_perc;
 
@@ -21,7 +21,7 @@ public class Bicicleta extends Veiculo{
   }
 
   public void desenhar(){
-    String[] bike = {"   __o\n"," _`\\<,_\n","(*)/ (*)\n\n"};
+
     System.out.print(bike[0]);
     System.out.print(bike[1]);
     System.out.print(bike[2]);
@@ -29,9 +29,9 @@ public class Bicicleta extends Veiculo{
 
   public void mover(){
     String giroBike = "    ";
-    dist_perc = getDistancia();
-    for (int i = 0; i < dist_perc ; i++)
-          giroBike = "    " + giroBike;
+    //dist_perc = getDistancia();
+    //for (int i = 0; i < dist_perc ; i++)
+    //      giroBike = "    " + giroBike;
     for(int i = 0; i<bike.length; i++)
     	bike[i] = giroBike + bike[i];
     System.out.print(bike[0]);

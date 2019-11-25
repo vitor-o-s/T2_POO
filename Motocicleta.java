@@ -1,9 +1,8 @@
 public class Motocicleta extends Veiculo_Motorizado implements IPVA{
 
   //Atributos
-  private int dist_perc;
-  private String[] moto;
   private String[] giroMoto;
+  private String[] moto = {"   ,_oo\n",".-/c-//::          Motocicleta\n","(_)'==(_)\n\n"};
 
   //Método construtor
   public Motocicleta(int ID, int dist){
@@ -13,7 +12,7 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
 
   //Métodos Herdados de Veiculo
   public void desenhar(){
-    String[] moto = {"   ,_oo\n",".-/c-//::          Motocicleta\n","(_)'==(_)\n\n"};
+
     System.out.print(moto[0]);
     System.out.print(moto[1]);
     System.out.print(moto[2]);
@@ -24,16 +23,18 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
 
   public void mover(){
     String giroMoto = "      ";
-    dist_perc = getDistancia();
-    for (int i = 0; i < dist_perc; i++)
-          giroMoto = "    " + giroMoto;
-    for(int i = 0; i<moto.length; i++)
+
+    //dist_perc = getDistancia();
+    //for (int i = 0; i < dist_perc; i++)
+    //      giroMoto = "    " + giroMoto;
+
+    for(int i = 0; i< moto.length; i++)
     	moto[i] = giroMoto +moto[i];
     System.out.print(moto[0]);
     System.out.print(moto[1]);
     System.out.print(moto[2]);
     setDistancia();
-    //combustivel = combustivel -
+    mudacombustivel(getMoto());
 
   }
 
@@ -45,10 +46,13 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   public void abastecer(){
 
   }
-
+  /*public float getcombustivel(){
+    return getcombustivel();
+  }*/
   //Métodos Herdados de IPVA
   public double calcularIPVA(){
     return (cte_Motocicleta * valor_Base);
   }
+
 
 }
