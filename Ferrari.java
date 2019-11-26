@@ -50,4 +50,8 @@ public class Ferrari extends Veiculo_Motorizado implements IPVA{
     return (cte_Ferrari * valor_Base);
   }
 
+  public boolean getIPVA(){
+    return IPVA;
+  }
+
 }

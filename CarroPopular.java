@@ -18,7 +18,7 @@ public class CarroPopular extends Veiculo_Motorizado implements IPVA{
   }
 
   public void mover(){
-    String giroC = "                    ";
+    String giroC = "          ";
 
     for(int i = 0; i< carro.length; i++)
       carro[i] = giroC + carro[i];
