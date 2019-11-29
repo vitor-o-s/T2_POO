@@ -5,7 +5,7 @@ public class Simulador {
 	private static int n_veiculos = 0;
 	private static Veiculo[] veiculos = new Veiculo[max];
 	private static boolean[] ocupados = new boolean[max];
-
+	private int IdVe;
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in); // Funcao para leitura de dados
 		String aux;
@@ -43,8 +43,11 @@ public class Simulador {
 
 						tipoVeiculo = teclado.next().charAt(0);
 
+						System.out.println("Informe o ID do veiculo:");
+						IdVe = teclado.nextInt();
+
 					} while (!validaTipo(tipoVeiculo));
-					adicionaVeiculo(tipoVeiculo);
+					adicionaVeiculo(IdVe,tipoVeiculo);
 				} else
 					System.out.println("Numero maximo de veiculos atingido!");
 
@@ -52,6 +55,11 @@ public class Simulador {
 			}
 			// Remover um veiculo
 			case 'b': {
+					System.out.println("Informe o ID do veiculo que deseja remover:");
+					IdVe = teclado.nextInt();
+					removeV(IdVe);
+			}
+
 
 				break;
 			}
@@ -118,48 +126,61 @@ public class Simulador {
  */
 private static boolean validaTipo(char nome) {
 	if(nome == 'B' || nome == 'M' || nome == 'C' || nome == 'F') {
-		return true; 
+		return true;
 	} else {
-		return false; 
+		return false;
 	}
 }
 
+
+
 // já irá validar se tem posição no inicio do case a da main
-private static void adicionaVeiculo(char tipo) {
+public static void adicionaVeiculo(int ID, char tipo) {
+
 	int i=0;
 	while(ocupados[i] != false) { // vai percorrer o vetor ocupados até achar um false ... o tipo + (indice + 1) desse vetor sera o NICK do Veiculo
 		i++;
 	}
-	
-	String name = tipo + Integer.toString(i);
 
 	switch(tipo) {
 		case 'B': // CRIANDO OBJETO Bicicleta
 		{
-			veiculos[i] = new Bicicleta(name);
+			veiculos[i] = new Bicicleta(ID,0);
 			break;
 		}
 
 		case 'M': // CRIANDO OBJETO Motocicleta
 		{
-			veiculos[i] = new Motocicleta(name); 
+			veiculos[i] = new Motocicleta(ID,0);
 			break;
 		}
 
 		case 'C': // CRIANDO OBJETO CarroPopular
 		{
-			veiculos[i] = new CarroPopular(name);
+			veiculos[i] = new CarroPopular(ID,0);
 			 break;
 		}
 
 		case 'F': // CRIANDO OBJETO Ferrari
 		{
-			veiculos[i] = new Ferrari(name);
+			veiculos[i] = new Ferrari(ID,0);
 			break;
 		}
 	}
 	ocupados[i] = true; // Como foi adicionado um novo Objeto ... setar aquela posição como ocupada (true)
 	nveiculos++;
+}
+
+public static void removeV(int ID){
+
+	int i=0;
+
+	while(veiculos[i].getID()!=ID){
+		i++;
+	}
+	veiculos[i] = null;
+	ocupados[i] = false;
+
 }
 
 }

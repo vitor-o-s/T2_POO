@@ -31,4 +31,8 @@ public abstract class Veiculo{
     distanciaPercorrida = distanciaPercorrida + 1;
   }
 
+  public int getID(){
+    return ID;
+  }
+
 }
