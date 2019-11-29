@@ -1,32 +1,31 @@
 import java.util.Random;
 
-public  class Roda{
+public class Roda {
 
-  //Atributos
+  // Atributos
   private boolean calibragempneu;
 
-  //Métodos
-  public Roda(){
+  // Métodos
+  public Roda() {
     Random x = new Random();
-    int i =  x.nextInt(100);
-    if(i % 2 == 0) {
+    int i = x.nextInt(100);
+    if (i % 2 == 0) {
       this.calibragempneu = true;
-    }
-    else{
+    } else {
       this.calibragempneu = false;
     }
   }
 
-  public void setCalibragemT(){
+  public void setCalibragemT() {
     this.calibragempneu = true;
   }
 
-  public void setCalibragemF(){
+  public void setCalibragemF() {
     this.calibragempneu = false;
   }
 
-  public boolean getCalibragem(){
-     return this.calibragempneu;
+  public boolean getCalibragem() {
+    return this.calibragempneu;
   }
 
 }
