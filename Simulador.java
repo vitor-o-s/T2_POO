@@ -34,6 +34,20 @@ public class Simulador {
 			// Incluir veiculo
 			case 'a': {
 
+				if (n_veiculos < max) {
+					char tipoVeiculo;
+					// mostraVeiculos();
+					do {
+						System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
+						System.out.print("Informe o tipo de veiculo para ser adicionado: ");
+
+						tipoVeiculo = teclado.next().charAt(0);
+
+					} while (!validaTipo(tipoVeiculo));
+					adicionaVeiculo(tipoVeiculo);
+				} else
+					System.out.println("Numero maximo de veiculos atingido!");
+
 				break;
 			}
 			// Remover um veiculo
@@ -98,4 +112,54 @@ public class Simulador {
 			System.out.println("");
 		} while (opcao != 'l');
 	}
+
+/**
+ * Valida se existe o tipo de veiculo informado
+ */
+private static boolean validaTipo(char nome) {
+	if(nome == 'B' || nome == 'M' || nome == 'C' || nome == 'F') {
+		return true; 
+	} else {
+		return false; 
+	}
+}
+
+// já irá validar se tem posição no inicio do case a da main
+private static void adicionaVeiculo(char tipo) {
+	int i=0;
+	while(ocupados[i] != false) { // vai percorrer o vetor ocupados até achar um false ... o tipo + (indice + 1) desse vetor sera o NICK do Veiculo
+		i++;
+	}
+	
+	String name = tipo + Integer.toString(i);
+
+	switch(tipo) {
+		case 'B': // CRIANDO OBJETO Bicicleta
+		{
+			veiculos[i] = new Bicicleta(name);
+			break;
+		}
+
+		case 'M': // CRIANDO OBJETO Motocicleta
+		{
+			veiculos[i] = new Motocicleta(name); 
+			break;
+		}
+
+		case 'C': // CRIANDO OBJETO CarroPopular
+		{
+			veiculos[i] = new CarroPopular(name);
+			 break;
+		}
+
+		case 'F': // CRIANDO OBJETO Ferrari
+		{
+			veiculos[i] = new Ferrari(name);
+			break;
+		}
+	}
+	ocupados[i] = true; // Como foi adicionado um novo Objeto ... setar aquela posição como ocupada (true)
+	nveiculos++;
+}
+
 }
