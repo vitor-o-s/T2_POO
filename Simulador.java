@@ -1,7 +1,8 @@
 public class Simulador{
   public static void main (String Args[]){
 
-
+       Veiculo[] veiculo = new Veiculo[20];
+       veiculo[0] = new Motocicleta(5,0);
        Motocicleta moto = new Motocicleta(1,0);
        Bicicleta bike = new Bicicleta(2,0);
        Ferrari F1 = new Ferrari(3,0);
@@ -49,7 +50,20 @@ public class Simulador{
        car.desenhar();
   }
 
-  public static incluirV(int ID){
-    
+  public void incluirV(Veiculo v, int ID, String Tipo){
+
+    switch(Tipo){
+      case B: v[] = new Bicicleta(ID,0);
+                    break;
+      case M: v[] = new Motocicleta(ID,0);
+                    break;
+      case F: v[] = new Ferrari(ID,0);
+              break;
+      case C: v[] = new CarroPopular(ID,0);
+              break;
+      default: System.out.print("Opcao invalida");
+    }
   }
+
+
 }
