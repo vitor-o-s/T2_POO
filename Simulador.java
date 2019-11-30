@@ -1,14 +1,16 @@
 import java.util.Scanner;
 
 public class Simulador {
+
 	private static final int max = 20;
-	private static int n_veiculos = 0;
 	private static Veiculo[] veiculos = new Veiculo[max];
-	private static boolean[] ocupados = new boolean[max];
-	private int IdVe;
+	private static int IdVe;
+
+
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in); // Funcao para leitura de dados
 		String aux;
+		char tipoVeiculo;
 
 		char opcao; // Variavel para selecionar as opções do simulador
 
@@ -34,35 +36,25 @@ public class Simulador {
 			// Incluir veiculo
 			case 'a': {
 
-				if (n_veiculos < max) {
-					char tipoVeiculo;
-					// mostraVeiculos();
-					do {
-						System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
-						System.out.print("Informe o tipo de veiculo para ser adicionado: ");
+					System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
+					System.out.println("Informe o tipo de veiculo para ser adicionado: ");
 
-						tipoVeiculo = teclado.next().charAt(0);
-
-						System.out.println("Informe o ID do veiculo:");
-						IdVe = teclado.nextInt();
-
-					} while (!validaTipo(tipoVeiculo));
-					adicionaVeiculo(IdVe,tipoVeiculo);
-				} else
-					System.out.println("Numero maximo de veiculos atingido!");
+					tipoVeiculo = teclado.next().charAt(0);
+					System.out.println("Informe o ID do veiculo:");
+					IdVe = teclado.nextInt();
+				  adicionaVeiculo(IdVe,tipoVeiculo);
 
 				break;
 			}
+
 			// Remover um veiculo
 			case 'b': {
 					System.out.println("Informe o ID do veiculo que deseja remover:");
 					IdVe = teclado.nextInt();
 					removeV(IdVe);
+					break;
 			}
 
-
-				break;
-			}
 			// Abastecer veiculo
 			case 'c': {
 
@@ -121,25 +113,16 @@ public class Simulador {
 		} while (opcao != 'l');
 	}
 
-/**
- * Valida se existe o tipo de veiculo informado
- */
-private static boolean validaTipo(char nome) {
-	if(nome == 'B' || nome == 'M' || nome == 'C' || nome == 'F') {
-		return true;
-	} else {
-		return false;
-	}
-}
 
-
-
-// já irá validar se tem posição no inicio do case a da main
 public static void adicionaVeiculo(int ID, char tipo) {
 
 	int i=0;
-	while(ocupados[i] != false) { // vai percorrer o vetor ocupados até achar um false ... o tipo + (indice + 1) desse vetor sera o NICK do Veiculo
+	while(veiculos[i] != null && i<max) { // vai percorrer o vetor ocupados até achar um false ... o tipo + (indice + 1) desse vetor sera o NICK do Veiculo
 		i++;
+	}
+
+	if(i==max){
+
 	}
 
 	switch(tipo) {
@@ -167,20 +150,23 @@ public static void adicionaVeiculo(int ID, char tipo) {
 			break;
 		}
 	}
-	ocupados[i] = true; // Como foi adicionado um novo Objeto ... setar aquela posição como ocupada (true)
-	nveiculos++;
 }
 
-public static void removeV(int ID){
+public static  void removeV(int ID){
 
 	int i=0;
 
-	while(veiculos[i].getID()!=ID){
+	while(veiculos[i].getID()!=ID && i < max){
 		i++;
 	}
-	veiculos[i] = null;
-	ocupados[i] = false;
 
+	if(i==max){
+		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+	}
+	else{
+		veiculos[i] = null;
+		System.out.println("Veiculo removido com sucesso");
+	}
 }
 
 }
