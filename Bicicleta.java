@@ -29,12 +29,15 @@ public class Bicicleta extends Veiculo{
   public void mover(){
     String giroBike = "    ";
 
-    for(int i = 0; i<bike.length; i++)
-    	bike[i] = giroBike + bike[i];
-    System.out.print(bike[0]);
-    System.out.print(bike[1]);
-    System.out.print(bike[2]);
-    setDistancia();
+    if(r_cali() == 2){
+      for(int i = 0; i<bike.length; i++)
+      	bike[i] = giroBike + bike[i];
+      System.out.print(bike[0]);
+      System.out.print(bike[1]);
+      System.out.print(bike[2]);
+      setDistancia();
+    }
+
 
   }
 

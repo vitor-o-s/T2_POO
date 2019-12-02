@@ -16,7 +16,6 @@ public abstract class Veiculo{
 
   public abstract void mover();
   public abstract void desenhar();
-  public abstract String toString();
 
   public void calibraALL(){
     for(int i = 0; i < quantidadeRodas; i++){
@@ -49,4 +48,15 @@ public abstract class Veiculo{
     return ID;
   }
 
+  public int r_cali(){
+    int cont = 0;
+    for(int i = 0; i<rodas.length; i++){
+      if(rodas[i].getCalibragem() == true) cont++;
+    }
+    return cont;
+  }
+
+  public String toString(){
+    return "Sou o veiculo de ID:"+ID+" com "+quantidadeRodas+" rodas e distancia percorrida: "+distanciaPercorrida;
+  }
 }

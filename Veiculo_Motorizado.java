@@ -29,14 +29,27 @@ public abstract class Veiculo_Motorizado extends Veiculo{
   }
 
   public void mudacombustivel(float tipoV){
-    this.combustivel = this.combustivel - tipoV;
+    if(tipoV == 'C'){
+      this.combustivel = this.combustivel - getCarro();
+    }
+		else if (tipoV == 'F'){
+      this.combustivel = this.combustivel - getFerrari();
+		}
+		else if(tipoV == 'M'){
+			this.combustivel = this.combustivel - getMoto();
+		}
+		else{
+      System.out.println("Não foi possível colocar combustivel nesse veiculo");
+		}
+
   }
   public float getcombustivel(){
     return combustivel;
   }
 
   public String toString(){
-    return "Sou um veiculo motorizado com "+getcombustivel()+"litros";
+    String aux = super.toString() + "Sou um veiculo motorizado com "+getcombustivel()+"litros";
+    return aux;
   }
 
 }

@@ -33,15 +33,21 @@ public class Ferrari extends Veiculo_Motorizado implements IPVA{
   public void mover(){
     String giroF = "                    ";
 
-    for(int i = 0; i< ferrari.length; i++)
-    	ferrari[i] = giroF + ferrari[i];
-    System.out.print(ferrari[0]);
-    System.out.print(ferrari[1]);
-    System.out.print(ferrari[2]);
-    System.out.print(ferrari[3]);
-    System.out.print(ferrari[4]);
-    setDistancia();
-    mudacombustivel(getFerrari());
+    if(getcombustivel()>0 && IPVA == true && r_cali() == 4){
+      for(int i = 0; i< ferrari.length; i++)
+      	ferrari[i] = giroF + ferrari[i];
+      System.out.print(ferrari[0]);
+      System.out.print(ferrari[1]);
+      System.out.print(ferrari[2]);
+      System.out.print(ferrari[3]);
+      System.out.print(ferrari[4]);
+      setDistancia();
+      mudacombustivel(getFerrari());
+    }
+    else{
+      System.out.println("Veja se o veiculo possui IPVA pago e combustivel");
+    }
+
   }
 
 

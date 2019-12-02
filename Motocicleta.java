@@ -33,17 +33,18 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   public void mover(){
     String giroMoto = "      ";
 
-    //dist_perc = getDistancia();
-    //for (int i = 0; i < dist_perc; i++)
-    //      giroMoto = "    " + giroMoto;
-
-    for(int i = 0; i< moto.length; i++)
-    	moto[i] = giroMoto +moto[i];
-    System.out.print(moto[0]);
-    System.out.print(moto[1]);
-    System.out.print(moto[2]);
-    setDistancia();
-    mudacombustivel(getMoto());
+    if(getcombustivel()>0 && IPVA == true && r_cali() == 2){
+      for(int i = 0; i< moto.length; i++)
+      	moto[i] = giroMoto +moto[i];
+      System.out.print(moto[0]);
+      System.out.print(moto[1]);
+      System.out.print(moto[2]);
+      setDistancia();
+      mudacombustivel(getMoto());
+    }
+    else{
+      System.out.println("Veja se o veiculo possui IPVA pago e combustivel");
+    }
 
   }
 
@@ -55,6 +56,7 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   public void abastecer(){
 
   }
+
   /*public float getcombustivel(){
     return getcombustivel();
   }*/

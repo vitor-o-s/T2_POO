@@ -147,7 +147,7 @@ public static void main(String[] args) {
 		} while (opcao != 'l');
 	}
 
-
+//Deve estar ok
 public static void adicionaVeiculo(int ID, char tipo) {
 
 	int i=0;
@@ -185,7 +185,7 @@ public static void adicionaVeiculo(int ID, char tipo) {
 		}
 	}
 }
-
+//Deve estar ok
 public static  void removeV(int ID){
 
 	int i=0;
@@ -202,7 +202,7 @@ public static  void removeV(int ID){
 		System.out.println("Veiculo removido com sucesso");
 	}
 }
-
+//É pra funcionar
 public static void calibraTipo(char tipo){
 
 
@@ -230,13 +230,13 @@ public static void calibraTipo(char tipo){
 
 	}
 }
-
+//Me parece bom
 public static void ImprimirPista(){
 		for(int i = 0; i< veiculos.length; i++){
 			veiculos[i].desenhar();
 		}
 }
-
+//Deve funcionar
 public static void calibraEsp(int ID, int n_pneu){
 	int i=0;
 
@@ -252,7 +252,7 @@ public static void calibraEsp(int ID, int n_pneu){
 		System.out.println("Calibrado com sucesso");
 	}
 }
-
+//Deve funcionar
 public static void esvaziaEsp(int ID, int n_pneu){
 	int i=0;
 
@@ -267,19 +267,41 @@ public static void esvaziaEsp(int ID, int n_pneu){
 		System.out.println("Descalibrado com sucesso");
 	}
 }
-
+//Ta vazio
 public static void imprimeTipo(char tipo){
 
 }
-
+//Também ta vazio
 public static void imprimeinfo(){
 
 }
-
+//Se pa funciona
 public static void moveTipo(char tipo){
+	for(int i = 0; i < veiculos.length; i++){
+		if(tipo == 'B'){
+			if(veiculos[i] instanceof Bicicleta){
+				veiculos[i].mover();
+			}
+		}
+		else if (tipo == 'F'){
+			if(veiculos[i] instanceof Ferrari){
+				veiculos[i].mover();
+			}
+		}
+		else if(tipo == 'M'){
+			if(veiculos[i] instanceof Motocicleta){
+				veiculos[i].mover();
+			}
+		}
+		else{
+			if(veiculos[i] instanceof CarroPopular){
+				veiculos[i].mover();
+			}
+		}
 
+	}
 }
-
+//É pra funcionar
 public static void moveV(int ID){
 	int i=0;
 
@@ -294,7 +316,7 @@ public static void moveV(int ID){
 		veiculos[i].mover();
 	}
 }
-
+//Junges salvou
 public static void abasteceV(int ID, float litros){
 	int i=0;
 
@@ -307,9 +329,10 @@ public static void abasteceV(int ID, float litros){
 	}
 	else{
 		if(veiculos[i] instanceof Veiculo_Motorizado){
-			(Veiculo_Motorizado)veiculos[i].abastecer(litros);
+
+			((Veiculo_Motorizado) veiculos[i]).abastecer(litros);
 			System.out.println ("Veiculo abastecido com sucesso");
-		}		
+		}
 	}
 
 }
