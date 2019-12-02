@@ -147,7 +147,7 @@ public static void main(String[] args) {
 		} while (opcao != 'l');
 	}
 
-//Deve estar ok
+
 public static void adicionaVeiculo(int ID, char tipo) {
 
 	int i=0;
@@ -185,7 +185,7 @@ public static void adicionaVeiculo(int ID, char tipo) {
 		}
 	}
 }
-//Deve estar ok
+
 public static  void removeV(int ID){
 
 	int i=0;
@@ -202,6 +202,17 @@ public static  void removeV(int ID){
 		System.out.println("Veiculo removido com sucesso");
 	}
 }
+
+public static void ImprimirPista(){
+
+		for(int i = 0; i<veiculos.length; i++){
+			if(veiculos[i]!=null){
+				veiculos[i].desenhar();
+			}
+		}
+}
+
+
 //É pra funcionar
 public static void calibraTipo(char tipo){
 
@@ -229,12 +240,6 @@ public static void calibraTipo(char tipo){
 		}
 
 	}
-}
-//Me parece bom
-public static void ImprimirPista(){
-		for(int i = 0; i< veiculos.length; i++){
-			veiculos[i].desenhar();
-		}
 }
 //Deve funcionar
 public static void calibraEsp(int ID, int n_pneu){
@@ -278,27 +283,28 @@ public static void imprimeinfo(){
 //Se pa funciona
 public static void moveTipo(char tipo){
 	for(int i = 0; i < veiculos.length; i++){
-		if(tipo == 'B'){
-			if(veiculos[i] instanceof Bicicleta){
-				veiculos[i].mover();
+		if(veiculos[i]!=null){
+			if(tipo == 'B'){
+				if(veiculos[i] instanceof Bicicleta){
+					veiculos[i].mover();
+				}
+			}
+			else if (tipo == 'F'){
+				if(veiculos[i] instanceof Ferrari){
+					veiculos[i].mover();
+				}
+			}
+			else if(tipo == 'M'){
+				if(veiculos[i] instanceof Motocicleta){
+					veiculos[i].mover();
+				}
+			}
+			else{
+				if(veiculos[i] instanceof CarroPopular){
+					veiculos[i].mover();
+				}
 			}
 		}
-		else if (tipo == 'F'){
-			if(veiculos[i] instanceof Ferrari){
-				veiculos[i].mover();
-			}
-		}
-		else if(tipo == 'M'){
-			if(veiculos[i] instanceof Motocicleta){
-				veiculos[i].mover();
-			}
-		}
-		else{
-			if(veiculos[i] instanceof CarroPopular){
-				veiculos[i].mover();
-			}
-		}
-
 	}
 }
 //É pra funcionar

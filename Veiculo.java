@@ -12,6 +12,9 @@ public abstract class Veiculo{
     this.distanciaPercorrida = distancia;
     this.quantidadeRodas = qtdrodas;
     this.rodas = new Roda[quantidadeRodas];
+    for(int i = 0; i < rodas.length; i++){
+      rodas[i] = new Roda();
+    }
   }
 
   public abstract void mover();
@@ -31,12 +34,6 @@ public abstract class Veiculo{
     rodas[pos-1].setCalibragemT();
   }
 
-  public void iniciarPneu(Roda rodas[], int quantidadeRodas){
-    for(int i = 0; i < quantidadeRodas; i++){
-      rodas[i] = new Roda();
-    }
-  }
-
   public int getDistancia(){
     return distanciaPercorrida;
   }
@@ -51,7 +48,7 @@ public abstract class Veiculo{
   public int r_cali(){
     int cont = 0;
     for(int i = 0; i<rodas.length; i++){
-      if(rodas[i].getCalibragem() == true) cont++;
+      if(rodas[i].getCalibragem()) cont++;
     }
     return cont;
   }

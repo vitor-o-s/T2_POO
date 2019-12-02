@@ -9,6 +9,7 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   //Método construtor
   public Motocicleta(int ID, int dist){
     super(ID, dist, 2);
+
     Random x = new Random();
     int i =  x.nextInt(100);
     if(i % 2 == 0) {
