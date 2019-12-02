@@ -7,10 +7,12 @@ public class Simulador {
 	private static int IdVe;
 
 
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in); // Funcao para leitura de dados
 		String aux;
 		char tipoVeiculo;
+		float comb; //combustivel
+		int pneu;
 
 		char opcao; // Variavel para selecionar as opções do simulador
 
@@ -52,56 +54,88 @@ public class Simulador {
 					System.out.println("Informe o ID do veiculo que deseja remover:");
 					IdVe = teclado.nextInt();
 					removeV(IdVe);
+
 					break;
 			}
 
 			// Abastecer veiculo
 			case 'c': {
+				System.out.println("Informe o ID do veiculo que deseja remover:");
+				IdVe = teclado.nextInt();
+				System.out.println("Informe a quantidade de litros que deseja repor:");
+				comb = teclado.nextFloat();
+				abasteceV(IdVe,comb);
 
 				break;
 			}
 			// Movimentar veiculo
 			case 'd': {
+				System.out.println("Informe o ID do veiculo que deseja remover:");
+				IdVe = teclado.nextInt();
+				moveV(IdVe);
 
 				break;
 			}
 			// Movimentar veiculos por tipo
 			case 'e': {
+				System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
+				System.out.println("Informe o tipo de veiculo a ser movido: ");
+				tipoVeiculo = teclado.next().charAt(0);
+				moveTipo(tipoVeiculo);
 
 				break;
 			}
 			// Imprimir todos os dados de todos os veículos
 			case 'f': {
+				imprimeinfo();
 
 				break;
 			}
 			// Imprimir dados de veículo por tipo
 			case 'g': {
+				System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
+				System.out.println("Informe o tipo de veiculo a ser movido: ");
+				tipoVeiculo = teclado.next().charAt(0);
+				imprimeTipo(tipoVeiculo);
 
 				break;
 			}
 			// Esvaziar um pneu específico
 			case 'h': {
+				System.out.println("Informe o ID do veiculo:");
+				IdVe = teclado.nextInt();
+				System.out.println("Informe a posição do pneu:");
+				pneu = teclado.nextInt();
+				esvaziaEsp(IdVe,pneu);
 
 				break;
 			}
 			// Calibrar um pneu específico
 			case 'i': {
-
+				System.out.println("Informe o ID do veiculo:");
+				IdVe = teclado.nextInt();
+				System.out.println("Informe a posição do pneu:");
+				pneu = teclado.nextInt();
+				calibraEsp(IdVe,pneu);
 				break;
 			}
 			// Calibrar todos os pneus por tipo veiculo
 			case 'j': {
-
+				System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
+				System.out.println("Informe o tipo de veiculo a ser movido: ");
+				tipoVeiculo = teclado.next().charAt(0);
+				calibraTipo(tipoVeiculo);
 				break;
 			}
 			// Imprimir pista de corrida
 			case 'k': {
+				ImprimirPista();
 
 				break;
 			}
 			// Sair da aplicacao
 			case 'l': {
+
 				break;
 			}
 			// caso opção for diferente do intervalo [a-j]
@@ -167,6 +201,117 @@ public static  void removeV(int ID){
 		veiculos[i] = null;
 		System.out.println("Veiculo removido com sucesso");
 	}
+}
+
+public static void calibraTipo(char tipo){
+
+
+	for(int i = 0; i < veiculos.length; i++){
+		if(tipo == 'B'){
+			if(veiculos[i] instanceof Bicicleta){
+				veiculos[i].calibraALL();
+			}
+		}
+		else if (tipo == 'F'){
+			if(veiculos[i] instanceof Ferrari){
+				veiculos[i].calibraALL();
+			}
+		}
+		else if(tipo == 'M'){
+			if(veiculos[i] instanceof Motocicleta){
+				veiculos[i].calibraALL();
+			}
+		}
+		else{
+			if(veiculos[i] instanceof CarroPopular){
+				veiculos[i].calibraALL();
+			}
+		}
+
+	}
+}
+
+public static void ImprimirPista(){
+		for(int i = 0; i< veiculos.length; i++){
+			veiculos[i].desenhar();
+		}
+}
+
+public static void calibraEsp(int ID, int n_pneu){
+	int i=0;
+
+	while(veiculos[i].getID()!=ID && i < max){
+		i++;
+	}
+
+	if(i==max){
+		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+	}
+	else{
+		veiculos[i].calibra(n_pneu);
+		System.out.println("Calibrado com sucesso");
+	}
+}
+
+public static void esvaziaEsp(int ID, int n_pneu){
+	int i=0;
+
+	while(veiculos[i].getID()!=ID && i < max){
+		i++;
+	}
+	if(i==max){
+		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+	}
+	else{
+		veiculos[i].descalibrar(n_pneu);
+		System.out.println("Descalibrado com sucesso");
+	}
+}
+
+public static void imprimeTipo(char tipo){
+
+}
+
+public static void imprimeinfo(){
+
+}
+
+public static void moveTipo(char tipo){
+
+}
+
+public static void moveV(int ID){
+	int i=0;
+
+	while(veiculos[i].getID()!=ID && i < max){
+		i++;
+	}
+
+	if(i==max){
+		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+	}
+	else{
+		veiculos[i].mover();
+	}
+}
+
+public static void abasteceV(int ID, float litros){
+	int i=0;
+
+	while(veiculos[i].getID()!=ID && i < max){
+		i++;
+	}
+
+	if(i==max){
+		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+	}
+	else{
+		if(veiculos[i] instanceof Veiculo_Motorizado){
+			(Veiculo_Motorizado)veiculos[i].abastecer(litros);
+			System.out.println ("Veiculo abastecido com sucesso");
+		}		
+	}
+
 }
 
 }

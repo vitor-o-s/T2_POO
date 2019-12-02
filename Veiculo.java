@@ -18,7 +18,21 @@ public abstract class Veiculo{
   public abstract void desenhar();
   public abstract String toString();
 
-  public void calibrarPneu(Roda rodas[], int quantidadeRodas){
+  public void calibraALL(){
+    for(int i = 0; i < quantidadeRodas; i++){
+      rodas[i].setCalibragemT();
+    }
+  }
+
+  public void descalibrar(int pos){
+    rodas[pos-1].setCalibragemF();
+  }
+
+  public void calibra(int pos){
+    rodas[pos-1].setCalibragemT();
+  }
+
+  public void iniciarPneu(Roda rodas[], int quantidadeRodas){
     for(int i = 0; i < quantidadeRodas; i++){
       rodas[i] = new Roda();
     }
