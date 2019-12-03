@@ -282,8 +282,11 @@ public static void esvaziaEsp(int ID, int n_pneu){
 public static void imprimeTipo(char tipo){
 	for(int i = 0; i < veiculos.length; i++){
 		if(veiculos[i]!=null){
+			System.out.println("Não é nulo");
 			if(tipo == 'B'){
+				System.out.println("Ele sabe o tipo");
 				if(veiculos[i] instanceof Bicicleta){
+					System.out.println("É instancia");
 					((Bicicleta)veiculos[i]).toString();
 				}
 			}
