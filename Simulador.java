@@ -44,8 +44,8 @@ public static void main(String[] args) {
 					tipoVeiculo = teclado.next().charAt(0);
 					System.out.println("Informe o ID do veiculo:");
 					IdVe = teclado.nextInt();
-				  adicionaVeiculo(IdVe,tipoVeiculo);
-
+					if(valida(IdVe))  adicionaVeiculo(IdVe,tipoVeiculo);
+					else System.out.println("Ja existe ID");
 				break;
 			}
 
@@ -256,7 +256,7 @@ public static void calibraEsp(int ID, int n_pneu){
 		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
 	}
 	else{
-		if(veiculo[i]!=null){
+		if(veiculos[i]!=null){
 			veiculos[i].calibra(n_pneu);
 			System.out.println("Calibrado com sucesso");
 		}
@@ -284,22 +284,22 @@ public static void imprimeTipo(char tipo){
 		if(veiculos[i]!=null){
 			if(tipo == 'B'){
 				if(veiculos[i] instanceof Bicicleta){
-					veiculos[i].toString();
+					((Bicicleta)veiculos[i]).toString();
 				}
 			}
 			else if (tipo == 'F'){
 				if(veiculos[i] instanceof Ferrari){
-					veiculos[i].toString();
+					((Ferrari)veiculos[i]).toString();
 				}
 			}
 			else if(tipo == 'M'){
 				if(veiculos[i] instanceof Motocicleta){
-					veiculos[i].toString();
+					((Motocicleta)veiculos[i]).toString();
 				}
 			}
 			else{
 				if(veiculos[i] instanceof CarroPopular){
-					veiculos[i].toString();
+					((CarroPopular)veiculos[i]).toString();
 				}
 			}
 		}
@@ -307,7 +307,22 @@ public static void imprimeTipo(char tipo){
 }
 //Também ta vazio
 public static void imprimeinfo(){
-
+	for(int i = 0; i < veiculos.length; i++){
+		if(veiculos[i]!=null){
+				if(veiculos[i] instanceof Bicicleta){
+					((Bicicleta)veiculos[i]).toString();
+				}
+				else if(veiculos[i] instanceof Ferrari){
+					((Ferrari)veiculos[i]).toString();
+				}
+			else if(veiculos[i] instanceof Motocicleta){
+					((Motocicleta)veiculos[i]).toString();
+				}
+			else if(veiculos[i] instanceof CarroPopular){
+					((CarroPopular)veiculos[i]).toString();
+				}
+		}
+	}
 }
 //Se pa funciona
 public static void moveTipo(char tipo){
@@ -372,4 +387,12 @@ public static void abasteceV(int ID, float litros){
 
 }
 
+public static boolean valida(int ID){
+	for(int i = 0; i <veiculos.length; i++){
+		if(veiculos[i]!=null){
+			if(veiculos[i].getID() == ID) return false;
+		}
+	}
+	return true;
+}
 }

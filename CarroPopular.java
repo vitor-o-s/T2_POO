@@ -52,4 +52,9 @@ public class CarroPopular extends Veiculo_Motorizado implements IPVA{
     return (cte_CarroPopular * valor_Base);
   }
 
+  public String toString(){
+    String aux  = super.toString() + "Eu sou um Carro Popular com IPVA:"+IPVA;
+    return aux;
+  }
+
 }

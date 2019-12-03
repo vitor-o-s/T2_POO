@@ -48,7 +48,7 @@ public abstract class Veiculo_Motorizado extends Veiculo{
   }
 
   public String toString(){
-    String aux = super.toString() + "Sou um veiculo motorizado com "+getcombustivel()+"litros";
+    String aux = super.toString() + "Sou um veiculo motorizado com "+combustivel+"litros";
     return aux;
   }
 

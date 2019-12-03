@@ -50,18 +50,10 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   }
 
   public String toString(){
-    return "Eu sou uma Motocicleta";
+    String aux  = super.toString() + "Eu sou uma Motocicleta com IPVA:"+IPVA;
+    return aux;
   }
 
-  //Métodos Herdados de Veículo Motorizado
-  public void abastecer(){
-
-  }
-
-  /*public float getcombustivel(){
-    return getcombustivel();
-  }*/
-  //Métodos Herdados de IPVA
   public double calcularIPVA(){
     return (cte_Motocicleta * valor_Base);
   }

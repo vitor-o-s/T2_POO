@@ -12,7 +12,8 @@ public class Bicicleta extends Veiculo{
 
   //Metodos Herdados de Veiculos
   public String toString(){
-    return "Eu sou uma Bicicleta e andei"+getDistancia();
+    String aux = super.toString() + " sou uma Bicicleta";
+    return aux;
   }
 
   public void calibrarPneu(int n){

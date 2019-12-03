@@ -60,4 +60,9 @@ public class Ferrari extends Veiculo_Motorizado implements IPVA{
     return IPVA;
   }
 
+  public String toString(){
+    String aux  = super.toString() + "Eu sou uma Ferrari com IPVA:"+IPVA;
+    return aux;
+  }
+
 }
