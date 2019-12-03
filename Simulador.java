@@ -281,27 +281,27 @@ public static void esvaziaEsp(int ID, int n_pneu){
 public static void imprimeTipo(char tipo){
 	for(int i = 0; i < veiculos.length; i++){
 		if(veiculos[i]!=null){
-			System.out.println("Não é nulo");
+			//System.out.println("Não é nulo");
 			if(tipo == 'B'){
-				System.out.println("Ele sabe o tipo");
+				//System.out.println("Ele sabe o tipo");
 				if(veiculos[i] instanceof Bicicleta){
-					System.out.println("É instancia");
-					((Bicicleta)veiculos[i]).toString();
+					//System.out.println("É instancia");
+					System.out.println(((Bicicleta)veiculos[i]).toString());
 				}
 			}
 			else if (tipo == 'F'){
 				if(veiculos[i] instanceof Ferrari){
-					((Ferrari)veiculos[i]).toString();
+					System.out.println(((Ferrari)veiculos[i]).toString());
 				}
 			}
 			else if(tipo == 'M'){
 				if(veiculos[i] instanceof Motocicleta){
-					((Motocicleta)veiculos[i]).toString();
+					System.out.println(((Motocicleta)veiculos[i]).toString());
 				}
 			}
-			else{
+			else {
 				if(veiculos[i] instanceof CarroPopular){
-					((CarroPopular)veiculos[i]).toString();
+					System.out.println(((CarroPopular)veiculos[i]).toString());
 				}
 			}
 		}
@@ -312,16 +312,16 @@ public static void imprimeinfo(){
 	for(int i = 0; i < veiculos.length; i++){
 		if(veiculos[i]!=null){
 				if(veiculos[i] instanceof Bicicleta){
-					((Bicicleta)veiculos[i]).toString();
+					System.out.println(((Bicicleta)veiculos[i]).toString());
 				}
 				else if(veiculos[i] instanceof Ferrari){
-					((Ferrari)veiculos[i]).toString();
+					System.out.println(((Ferrari)veiculos[i]).toString());
 				}
 			else if(veiculos[i] instanceof Motocicleta){
-					((Motocicleta)veiculos[i]).toString();
+					System.out.println(((Motocicleta)veiculos[i]).toString());
 				}
 			else if(veiculos[i] instanceof CarroPopular){
-					((CarroPopular)veiculos[i]).toString();
+					System.out.println(((CarroPopular)veiculos[i]).toString());
 				}
 		}
 	}

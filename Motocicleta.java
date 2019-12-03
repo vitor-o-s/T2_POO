@@ -50,7 +50,7 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
   }
 
   public String toString(){
-    String aux  = super.toString() + "Eu sou uma Motocicleta com IPVA:"+IPVA;
+    String aux  = super.toString() + " Eu sou uma Motocicleta com IPVA:"+IPVA;
     return aux;
   }
 
