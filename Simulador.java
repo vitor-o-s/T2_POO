@@ -212,7 +212,6 @@ public static void ImprimirPista(){
 		}
 }
 
-
 //É pra funcionar
 public static void calibraTipo(char tipo){
 
@@ -253,7 +252,7 @@ public static void calibraEsp(int ID, int n_pneu){
 	}
 
 	if(i==max){
-		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+		System.out.println("O id não foi encontrado");
 	}
 	else{
 		if(veiculos[i]!=null){
@@ -271,7 +270,7 @@ public static void esvaziaEsp(int ID, int n_pneu){
 		i++;
 	}
 	if(i==max){
-		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+		System.out.println("O id não foi encontrado");
 	}
 	else{
 		veiculos[i].descalibrar(n_pneu);
@@ -363,7 +362,7 @@ public static void moveV(int ID){
 	}
 
 	if(i==max){
-		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+		System.out.println("O id não foi encontrado");
 	}
 	else{
 		veiculos[i].mover();
@@ -378,7 +377,7 @@ public static void abasteceV(int ID, float litros){
 	}
 
 	if(i==max){
-		System.out.println("O id não foi encontrado e portanto nenhum veículo removido");
+		System.out.println("O id não foi encontrado");
 	}
 	else{
 		if(veiculos[i] instanceof Veiculo_Motorizado){
