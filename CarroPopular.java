@@ -39,7 +39,7 @@ public class CarroPopular extends Veiculo_Motorizado implements IPVA{
         System.out.print(carro[2]);
         System.out.print(carro[3]);
       setDistancia();
-      mudacombustivel(getCarro());
+      //mudacombustivel(getCarro());
     }else{
     System.out.println("Veja se o veiculo possui IPVA pago e combustivel");
   }

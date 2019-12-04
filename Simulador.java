@@ -122,7 +122,7 @@ public static void main(String[] args) {
 			// Calibrar todos os pneus por tipo veiculo
 			case 'J': {
 				System.out.println("Bicicleta (B) | Motocicleta (M) | Carro Popular (C) | Ferrari (F)");
-				System.out.println("Informe o tipo de veiculo a ser movido: ");
+				System.out.println("Informe o tipo de veiculo a ser calibrado os pneus: ");
 				tipoVeiculo = teclado.next().charAt(0);
 				calibraTipo(tipoVeiculo);
 				break;

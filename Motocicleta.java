@@ -41,7 +41,7 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
       System.out.print(moto[1]);
       System.out.print(moto[2]);
       setDistancia();
-      mudacombustivel(getMoto());
+      //mudacombustivel(getMoto());
     }
     else{
       System.out.println("Veja se o veiculo possui IPVA pago e combustivel");
