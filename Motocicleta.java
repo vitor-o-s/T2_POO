@@ -20,6 +20,18 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
     }
   }
 
+  public Motocicleta(int ID){
+    super(ID,0,2);
+    Random x = new Random();
+    int i =  x.nextInt(100);
+    if(i % 2 == 0) {
+      this.IPVA = true;
+    }
+    else{
+      this.IPVA = false;
+    }
+  }
+
   //Métodos Herdados de Veiculo
   public void desenhar(){
 
@@ -41,7 +53,7 @@ public class Motocicleta extends Veiculo_Motorizado implements IPVA{
       System.out.print(moto[1]);
       System.out.print(moto[2]);
       setDistancia();
-      mudacombustivel(M);
+      mudacombustivel('M');
     }
     else{
       System.out.println("Veja se o veiculo possui IPVA pago e combustivel");
