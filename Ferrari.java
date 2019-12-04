@@ -42,7 +42,7 @@ public class Ferrari extends Veiculo_Motorizado implements IPVA{
       System.out.print(ferrari[3]);
       System.out.print(ferrari[4]);
       setDistancia();
-      //mudacombustivel(getFerrari());
+      mudacombustivel(F);
     }
     else{
       System.out.println("Veja se o veiculo possui IPVA pago e combustivel");

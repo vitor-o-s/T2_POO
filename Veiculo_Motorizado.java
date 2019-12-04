@@ -30,13 +30,13 @@ public abstract class Veiculo_Motorizado extends Veiculo{
 
   public void mudacombustivel(float tipoV){
     if(tipoV == 'C'){
-      this.combustivel = this.combustivel - getCarro();
+      this.combustivel = this.combustivel - this.gastoCarro;
     }
 		else if (tipoV == 'F'){
-      this.combustivel = this.combustivel - getFerrari();
+      this.combustivel = this.combustivel - this.gastoFerrari;
 		}
 		else if(tipoV == 'M'){
-			this.combustivel = this.combustivel - getMoto();
+			this.combustivel = this.combustivel - this.gastoMotocicleta;
 		}
 		else{
       System.out.println("Não foi possível colocar combustivel nesse veiculo");
