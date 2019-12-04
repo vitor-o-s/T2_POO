@@ -2,7 +2,7 @@
 
 - Segundo Trabalho da disciplina de Programação Orientada a Objetos
 - **Data de início 01/11/2019**
--  **Data de término xx/11/2019**
+-  **Data de término 04/12/2019**
 - Professora: Luciene  De Oliveira Marin   
 - Curso: Engenharia de Computação
 - Acadêmicos:  
